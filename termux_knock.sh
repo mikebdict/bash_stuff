@@ -1,8 +1,11 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Values for your knockd open and close sequences
-KNOCK_OPEN='croyddns.hopto.org 1999:udp 3842:tcp 6321:udp -d 500'
-KNOCK_CLOSE='croyddns.hopto.org 4999:udp 8642:udp 9321:tcp -d 500'
 
+# Values for your knockd open and close sequences to be used by knockd. See man
+# knock for more info 
+KNOCK_OPEN='(host /ip) port:protocol... -d (n)'
+KNOCK_CLOSE='(host /ip) port:protocol... -d (n)'
+
+# Simple loop to open / shut the ports with termux_knock.sh -o / -c
 for switch in "$@"; do
     case $switch in
         -o)
